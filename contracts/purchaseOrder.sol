@@ -18,15 +18,15 @@ contract PurchaseOrder {
 
     event PurchaseCreated(uint256 purchaseId, string productId, string productName, string currency, uint256 price, address buyer, string sellerName ,address seller, uint256 purchaseDate);
 
-    function createPurchase(string memory _productId, string memory productName, string memory currency, uint256 _price, address _buyer) public {
+    function createPurchase(string memory _productId, string memory productName, string memory currency, uint256 _price, address _buyer, string memory sellerName) public {
         require(_buyer != address(0), "Invalid buyer address");
         require(bytes(_productId).length > 0, "Product ID cannot be empty");
         require(_price > 0, "Price must be greater than zero");
 
         uint256 purchaseId = ++purchaseCounts[msg.sender];
-        purchases[msg.sender][purchaseId] = Purchase(_productId, productName, currency, _price, _buyer, msg.sender, block.timestamp);
+        purchases[msg.sender][purchaseId] = Purchase(_productId, productName, currency, _price, _buyer, sellerName,msg.sender, block.timestamp);
 
-        emit PurchaseCreated(purchaseId, _productId, productName, currency, _price, _buyer, msg.sender, block.timestamp);
+        emit PurchaseCreated(purchaseId, _productId, productName, currency, _price, _buyer,sellerName, msg.sender, block.timestamp);
     }
 
     function getPurchasesByBuyer(address _buyer) public view returns (Purchase[] memory) {
