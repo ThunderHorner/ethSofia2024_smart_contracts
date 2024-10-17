@@ -1,8 +1,7 @@
-# Sample Hardhat Project
-
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a Hardhat Ignition module that deploys that contract.
-
-Try running some of the following tasks:
+# ETH Sofia 2024 smart contracts 
+___
+This repo contains our smart contracts and deployment scripts.
+The are deployed onto our internal node in so we can develop and test everything before putting it on the network
 
 ```shell
 npm ci
