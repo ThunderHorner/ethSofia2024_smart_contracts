@@ -7,3 +7,4 @@ The are deployed onto our internal node in so we can develop and test everything
 npm ci
 npx hardhat run scripts/deploy.js --network elunesoft --show-stack-traces
 ```
+0x959922bE3CAee4b8Cd9a407cc3ac1C251C2007B1
