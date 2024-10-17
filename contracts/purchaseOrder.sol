@@ -5,6 +5,7 @@ contract PurchaseOrder {
     struct Purchase {
         string productId;
         string productName;
+        string currency;
         uint256 price;
         address buyer;
         address seller;
@@ -14,17 +15,17 @@ contract PurchaseOrder {
     mapping(address => mapping(uint256 => Purchase)) private purchases;
     mapping(address => uint256) private purchaseCounts;
 
-    event PurchaseCreated(uint256 purchaseId, string productId,string productName,  uint256 price, address buyer, address seller, uint256 purchaseDate);
+    event PurchaseCreated(uint256 purchaseId, string productId, string productName, string currency, uint256 price, address buyer, address seller, uint256 purchaseDate);
 
-    function createPurchase(string memory _productId, string memory productName,  uint256 _price, address _buyer) public {
+    function createPurchase(string memory _productId, string memory productName, string memory currency, uint256 _price, address _buyer) public {
         require(_buyer != address(0), "Invalid buyer address");
         require(bytes(_productId).length > 0, "Product ID cannot be empty");
         require(_price > 0, "Price must be greater than zero");
 
         uint256 purchaseId = ++purchaseCounts[msg.sender];
-        purchases[msg.sender][purchaseId] = Purchase(_productId,productName, _price, _buyer, msg.sender, block.timestamp);
+        purchases[msg.sender][purchaseId] = Purchase(_productId, productName, currency, _price, _buyer, msg.sender, block.timestamp);
 
-        emit PurchaseCreated(purchaseId, _productId, productName, _price, _buyer, msg.sender, block.timestamp);
+        emit PurchaseCreated(purchaseId, _productId, productName, currency, _price, _buyer, msg.sender, block.timestamp);
     }
 
     function getPurchasesByBuyer(address _buyer) public view returns (Purchase[] memory) {
