@@ -8,6 +8,7 @@ contract PurchaseOrder {
         string currency;
         uint256 price;
         address buyer;
+        string  sellerName;
         address seller;
         uint256 purchaseDate;
     }
@@ -15,7 +16,7 @@ contract PurchaseOrder {
     mapping(address => mapping(uint256 => Purchase)) private purchases;
     mapping(address => uint256) private purchaseCounts;
 
-    event PurchaseCreated(uint256 purchaseId, string productId, string productName, string currency, uint256 price, address buyer, address seller, uint256 purchaseDate);
+    event PurchaseCreated(uint256 purchaseId, string productId, string productName, string currency, uint256 price, address buyer, string sellerName ,address seller, uint256 purchaseDate);
 
     function createPurchase(string memory _productId, string memory productName, string memory currency, uint256 _price, address _buyer) public {
         require(_buyer != address(0), "Invalid buyer address");
