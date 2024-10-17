@@ -5,5 +5,6 @@ This project demonstrates a basic Hardhat use case. It comes with a sample contr
 Try running some of the following tasks:
 
 ```shell
+npm ci
 npx hardhat run scripts/deploy.js --network elunesoft --show-stack-traces
 ```
