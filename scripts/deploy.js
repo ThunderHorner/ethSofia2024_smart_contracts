@@ -3,7 +3,7 @@ const hre = require("hardhat");
 async function main() {
   // Get the contract name from command-line arguments
   const args = process.argv.slice(2);
-  const contractName = "PurchaseOrder"
+  const contractName = "PurchaseOrderWithWarranty"
 
   // Fetch the contract factory
   const ContractFactory = await hre.ethers.getContractFactory(contractName);
