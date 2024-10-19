@@ -7,6 +7,6 @@ The are deployed onto our internal node in so we can develop and test everything
 npm ci
 npx hardhat run scripts/deploy.js --network elunesoft --show-stack-traces
 ```
-0xB2b580ce436E6F77A5713D80887e14788Ef49c9A 
-0xB377a2EeD7566Ac9fCb0BA673604F9BF875e2Bab - warranty
-0x66F625B8c4c635af8b74ECe2d7eD0D58b4af3C3d - nft
+PurchaseOrder deployed to: 0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9
+PurchaseOrderWithWarranty deployed to: 0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9
+PurchaseOrderWithWarrantyNFT deployed to: 0x5FC8d32690cc91D4c39d9d3abcBD16989F875707
